@@ -2,7 +2,7 @@ import argparse
 from src import Trainer
 
 if __name__ == '__main__':
-    # Reads command line argument for the config file path or checkpoint path
+    # Reads command line arguments for the config file path or checkpoint path
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument(
@@ -23,4 +23,5 @@ if __name__ == '__main__':
     else:
         trainer = Trainer.load_checkpoint(args.checkpoint)
 
+    # Starts training the objective
     trainer.train()
