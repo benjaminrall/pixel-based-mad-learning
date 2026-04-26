@@ -77,12 +77,12 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
    This will install all packages required to run the project code.
    Our core dependencies are PyTorch for training models and Minari for interfacing with offline datasets. 
 
-3. **Download and process OGBench environments**:
+3. **Download and process environments**:
 
    We provide a script to download OGBench datasets and process them into local Minari datasets in order to interface with our code. This can be run using the following command:
 
    ```sh
-   uv run download_environments.py -s visual-antmaze-medium-navigate-v0 -t ogbench/antmaze/visual-medium-navigation-v0
+   uv run ogbench_download.py -s visual-antmaze-medium-navigate-v0 -t ogbench/antmaze/visual-medium-navigation-v0
    ```
 
    The source (`--source`, `-s`) and target (`--target`, `-t`) flags define the OGBench dataset to be downloaded and the desired local Minari identifier respectively. This process
@@ -104,6 +104,8 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
 
    During training, checkpoints will be saved by default to `./checkpoints/<run_name>`. If `track_wandb` is set to true, then an appropriate W&B project must be provided, and you must provide your W&B API
    key as an environment variable, either globally or by placing it in a `.env` file.
+
+
 
 ## Citation
 

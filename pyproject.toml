@@ -1,0 +1,40 @@
+[project]
+name = "pixel-based-mad-learning"
+version = "0.1.0"
+description = "Codebase for my final-year research project, entitled 'Learning the Minimum Action Distance in Pixel-Based Environments'."
+readme = "README.md"
+authors = [
+    { name = "Benjamin Rall", email = "benr2508@aol.com" }
+]
+requires-python = "==3.12.*"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.8",
+    "minari[all]>=0.5.3",
+    "networkx>=3.6",
+    "numba>=0.64.0",
+    "ogbench>=1.2.1",
+    "opencv-python>=4.13.0.92",
+    "pandas>=3.0.2",
+    "python-dotenv>=1.2.1",
+    "scikit-learn>=1.8.0",
+    "scipy>=1.16.3",
+    "seaborn>=0.13.2",
+    "tensorboard>=2.20.0",
+    "torch==2.7.1",
+    "umap-learn>=0.5.11",
+    "wandb>=0.23.1",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
