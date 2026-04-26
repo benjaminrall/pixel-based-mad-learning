@@ -53,7 +53,7 @@ class DatasetWrapper(Dataset, Registrable['DatasetWrapper'], ABC):
             self.infos[key] = np.load(info_path)
 
 
-    def _init_cache(self, dataset_id: str):
+    def _init_cache(self, dataset_id: str) -> None:
         """Initialises a cache containing the indexed observation data and additional info required for our datasets."""
         obs_path = os.path.join(self.cache_dir, 'observations.npy')
         indices_path = os.path.join(self.cache_dir, 'indices.npy')

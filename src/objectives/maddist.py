@@ -26,7 +26,7 @@ class MadDist(Objective):
     aliases = ['MadDist', 'mad', 'MAD']
 
 
-    def __init__(self, cfg: MadDistConfig, state: dict | None = None):
+    def __init__(self, cfg: MadDistConfig, state: dict | None = None) -> None:
         super().__init__(cfg, state)
 
         self.constraint_dataset = MadDistConstraintDatasetView(cast('MadDistDataset', self.dataset))
@@ -107,7 +107,7 @@ class MadDist(Objective):
         return loss.item(), d_r.mean().item()
     
 
-    def train(self, trainer: Trainer):
+    def train(self, trainer: Trainer) -> None:
         base_iterator = self.dataset.infinite_iterator()
         constraint_iterator = self.constraint_dataset.infinite_iterator()
 

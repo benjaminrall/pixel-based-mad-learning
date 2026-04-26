@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 class Objective(nn.Module, Registrable['Objective'], ABC):
     """Abstract base class for all trainable objectives."""
 
-    def __init__(self, cfg: ObjectiveConfig, state: dict | None = None):
+    def __init__(self, cfg: ObjectiveConfig, state: dict | None = None) -> None:
         super().__init__()
         self.cfg = cfg
         self.state = state
@@ -67,7 +67,7 @@ class Objective(nn.Module, Registrable['Objective'], ABC):
 
 
     @abstractmethod
-    def train(self, trainer: Trainer):
+    def train(self, trainer: Trainer) -> None:
         """
         Trains the objective, using the given Trainer 
         instance for logging and checkpoints.

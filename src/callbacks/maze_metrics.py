@@ -29,7 +29,7 @@ class MazeMetrics(Callback):
         self._initialised = False
 
 
-    def _build_maze_graph(self):
+    def _build_maze_graph(self) -> None:
         """Constructs a networkx graph from the maze layout and precomputes a matrix of all ground-truth distances."""
         num_rows = len(self.cfg.maze_layout)
         num_cols = len(self.cfg.maze_layout[0])
@@ -99,7 +99,7 @@ class MazeMetrics(Callback):
             trainer.log(f'{self.cfg.wandb_label}/{key}', metrics[key], progress)
 
 
-    def compute_metrics(self, objective: Objective):
+    def compute_metrics(self, objective: Objective) -> dict:
         """Computes and returns the quantitative metrics for the given objective."""
 
         if not self._initialised:

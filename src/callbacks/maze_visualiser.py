@@ -68,7 +68,7 @@ class MazeVisualiser(Callback):
             return np.concatenate([spatially_sampled_indices, padding_indices])
 
 
-    def _init_visualiser(self, objective: Objective, sample_ratio: float = 1):
+    def _init_visualiser(self, objective: Objective, sample_ratio: float = 1) -> None:
         """Initialises the visualiser for a given objective and sample ratio."""
         dataset = objective.dataset
         self.positions = np.copy(dataset.infos[self.cfg.pos_info_key])

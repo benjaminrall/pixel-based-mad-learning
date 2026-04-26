@@ -4,7 +4,7 @@ from torch.types import Tensor
 from .model import Model
 
 
-def mad_block(in_f, out_f) -> nn.Sequential:
+def mad_block(in_f: int, out_f: int) -> nn.Sequential:
     return nn.Sequential(
         AtariMadDistModel._init_layer(nn.Linear(in_f, out_f)),
         nn.SELU(),
@@ -25,7 +25,7 @@ class AtariMadDistModel(Model):
         if hasattr(layer, 'bias') and isinstance(layer.bias, Tensor):
             nn.init.constant_(layer.bias, 0)
         return layer
-    
+
 
     def _construct_model(self, _: int, hidden_dims: list[int] = [512, 512, 256], latent_dim: int = 512) -> nn.Module:
         layers = [

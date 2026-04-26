@@ -4,13 +4,13 @@ from torch.types import Tensor
 from .model import Model
 
 
-def conv_block(in_c, out_c) -> nn.Sequential:
+def conv_block(in_c: int, out_c: int) -> nn.Sequential:
     return nn.Sequential(
         VisualMadDistModel._init_layer(nn.Conv2d(in_c, out_c, kernel_size=4, stride=2, padding=1)),
         nn.ReLU()
     )
 
-def mad_block(in_f, out_f) -> nn.Sequential:
+def mad_block(in_f: int, out_f: int) -> nn.Sequential:
     return nn.Sequential(
         VisualMadDistModel._init_layer(nn.Linear(in_f, out_f)),
         nn.SELU(),

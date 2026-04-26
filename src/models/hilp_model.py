@@ -4,7 +4,7 @@ from torch.types import Tensor
 from .model import Model
 
 
-def hilp_block(in_f, out_f) -> nn.Sequential:
+def hilp_block(in_f: int, out_f: int) -> nn.Sequential:
     return nn.Sequential(
         HILPModel._init_layer(nn.Linear(in_f, out_f)),
         nn.GELU(),

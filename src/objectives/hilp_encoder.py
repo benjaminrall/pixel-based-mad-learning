@@ -24,7 +24,7 @@ class HILPEncoder(Objective):
     aliases = ['hilp_encoder', 'HILPEncoder', 'HILP']
 
 
-    def __init__(self, cfg: HILPConfig, state: dict | None = None):
+    def __init__(self, cfg: HILPConfig, state: dict | None = None) -> None:
         super().__init__(cfg, state)
 
         # Determines the state dimension from the first dataset sample
@@ -100,14 +100,14 @@ class HILPEncoder(Objective):
         return loss.item(), -curr_v.mean().item()
 
 
-    def _polyak_update(self):
+    def _polyak_update(self) -> None:
         """Applies a soft update to the target network."""
         for param, target_param in zip(self.phi.parameters(), self.phi_target.parameters()):
             target_param.data.mul_(1 - self.cfg.polyak)
             torch.add(target_param.data, param.data, alpha=self.cfg.polyak, out=target_param.data)
 
 
-    def train(self, trainer: Trainer):
+    def train(self, trainer: Trainer) -> None:
         iterator = self.dataset.infinite_iterator()
         for _ in tqdm(range(1 + self.updates_completed, self.cfg.total_updates + 1), initial=self.updates_completed, total=self.cfg.total_updates):
             states, next_states, goals = next(iterator)
