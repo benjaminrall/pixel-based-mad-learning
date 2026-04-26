@@ -105,7 +105,7 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
    ```
 
    During training, checkpoints will be saved by default to `./checkpoints/<run_name>`. If `track_wandb` is set to true, then an appropriate W&B project must be provided, and you must provide your W&B API
-   key as an environment variable, either globally or by placing it in a `.env` file.
+   key as the `WANDB_API_KEY` environment variable, either globally or by placing it in a `.env` file.
 
 5. **Analyse results**:
    
