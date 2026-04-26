@@ -23,7 +23,7 @@ Environments, as well as the notoriously complex Montezuma's Revenge environment
   <img src="figures/antmaze-obs.png" alt="Visual Observation" width="32%">
 </p>
 
-*Overview of the OGBench AntMaze environments used in our project. The first two images show the top-down layouts of the Medium and Large maze variants, respectively. The third depicts an example 64×64×3 pixel-based observation, showing the coloured floor used by the agent for spatial inference.*
+> *Overview of the OGBench AntMaze environments used in our project. The first two images show the top-down layouts of the Medium and Large maze variants, respectively. The third depicts an example 64×64×3 pixel-based observation, showing the coloured floor used by the agent for spatial inference.*
 
 ### Key Findings
 
@@ -36,28 +36,26 @@ Environments, as well as the notoriously complex Montezuma's Revenge environment
 <p align="center">
   <figure>
     <img src="figures/antmaze-medium-heatmaps.png" alt="AntMaze Medium Heatmap Visualisations" width="100%">
-    <figcaption><em>
-      Visualisations of final-step learned distance metrics 
-      on the OGBench AntMaze Medium environment. From left to right: 
-      the ground-truth MAD computed via the Floyd-Warshall algorithm, 
-      the state-based MadDist baseline, and our augmented Visual MadDist architecture.
-    </em></figcaption>
   </figure>
 </p>
+
+> *Visualisations of final-step learned distance metrics 
+      on the OGBench AntMaze Medium environment. From left to right: 
+      the ground-truth MAD computed via the Floyd-Warshall algorithm, 
+      the state-based MadDist baseline, and our augmented Visual MadDist architecture.*
 
 <p align="center">
   <figure>
     <img src="figures/revenge-starting-room-cluster.png" alt="Montezuma's Revenge Starting Room Cluster" width="100%">
-    <figcaption><em>
-      Visualisation of the largest state cluster identified by applying HDBSCAN to the two-dimensional UMAP projection
+  </figure>
+</p>
+
+> *Visualisation of the largest state cluster identified by applying HDBSCAN to the two-dimensional UMAP projection
       of the latent state space learned by Visual MadDist, which corresponds to the starting room of Montezuma's Revenge. 
       States are coloured by the learned MAD from the game's initial state (identified as the red point). 
       Four example frames illustrate the agent's progression through this cluster. Clockwise from top-right: (i) 
       the starting position; (ii) navigating the main chamber; (iii) reaching the bottleneck of the left ladder; 
-      and (iv) collecting the key after climbing the ladder.
-    </em></figcaption>
-  </figure>
-</p>
+      and (iv) collecting the key after climbing the ladder.*
 
 ## Installation and Usage
 
