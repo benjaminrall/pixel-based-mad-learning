@@ -124,7 +124,7 @@ If you use this code or find our work helpful, please consider citing our projec
   title        = {Learning the Minimum Action Distance in Pixel-Based Environments},
   year         = {2026},
   school       = {University of Bath},
-  type         = {MComp Final Year Project},
+  type         = {MComp Final Year Research Project},
 }
 ```
 
