@@ -79,10 +79,10 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
 
 3. **Download and process environments**:
 
-   We provide a script to download OGBench datasets and process them into local Minari datasets in order to interface with our code. This can be run using the following command:
+   We provide a script to download OGBench AntMaze datasets and process them into local Minari datasets in order to interface with our code. This can be run using the following command:
 
    ```sh
-   uv run ogbench_download.py -s visual-antmaze-medium-navigate-v0 -t ogbench/antmaze/visual-medium-navigation-v0
+   uv run antmaze_download.py -s visual-antmaze-medium-navigate-v0 -t ogbench/antmaze/visual-medium-navigation-v0
    ```
 
    The source (`--source`, `-s`) and target (`--target`, `-t`) flags define the OGBench dataset to be downloaded and the desired local Minari identifier respectively. This process
@@ -94,12 +94,12 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
 
    **Using a config file**:
    ```sh
-   uv run main.py --config configs/maddist/antmaze-large.yaml
+   uv run main.py --config configs/visual-maddist/antmaze-medium.yaml
    ```
 
    **Using a checkpoint**:
    ```sh
-   uv run main.py --checkpoint checkpoints/maddist-antmaze-large/40000.pt
+   uv run main.py --checkpoint checkpoints/visual-maddist-antmaze-medium/40000.pt
    ```
 
    During training, checkpoints will be saved by default to `./checkpoints/<run_name>`. If `track_wandb` is set to true, then an appropriate W&B project must be provided, and you must provide your W&B API

@@ -1,0 +1,28 @@
+run_name: visual-maddist-montezumas-revenge
+seed: 0
+track_wandb: true
+checkpoint_interval: 10000
+
+objective:
+  total_updates: 250000
+
+  type: mad
+  model: atari_mad
+
+  hidden_dims: [ 512, 512, 256 ]
+  latent_dim: 512
+  lr: 0.0001
+  alpha: 0.5
+  w_r: 1
+  w_c: 0.1
+  d_max: 100
+
+  dataset:
+    type: mad
+    batch_size: 64
+    constraint_batch_size: 128
+    H_c: 6
+    dataset_id: atari/montezuma-revenge-v0
+    obs_keys:
+      - observation
+    num_workers: 1

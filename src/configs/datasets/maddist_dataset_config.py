@@ -14,7 +14,7 @@ class MadDistDatasetConfig(DatasetConfig['MadDistDataset']):
     H_c: int = 6
 
     identifier = 'maddist'
-    aliases = ['maddist_dataset', 'MadDistDataset', 'MadDist', 'mad' 'MAD']
+    aliases = ['maddist_dataset', 'MadDistDataset', 'MadDist', 'mad', 'MAD']
 
     @property
     def target_class(self) -> type[MadDistDataset]:

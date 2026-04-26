@@ -22,8 +22,8 @@ class MadDist(Objective):
 
     cfg: MadDistConfig
 
-    identifier = 'mad'
-    aliases = ['maddist', 'MadDist', 'MAD']
+    identifier = 'maddist'
+    aliases = ['MadDist', 'mad', 'MAD']
 
 
     def __init__(self, cfg: MadDistConfig, state: dict | None = None):

@@ -1,0 +1,60 @@
+run_name: hilp-antmaze-medium
+seed: 0
+track_wandb: true
+checkpoint_interval: 10000
+
+objective:
+  total_updates: 100000
+
+  type: hilp
+  model: hilp
+
+  hidden_dims: [ 512, 512 ]
+  latent_dim: 32
+  lr: 0.0003
+  gamma: 0.99
+  tau: 0.9
+  polyak: 0.005
+
+  dataset:
+    type: hilp
+    batch_size: 1024
+    future_p: 0.625
+    gamma: 0.99
+    dataset_id: ogbench/antmaze/medium-navigation-v0
+    obs_keys:
+      - observation
+    info_keys:
+      pos: achieved_goal
+    mmap_obs: false
+
+callbacks:
+  - type: maze_metrics
+    callback_interval: 100
+    pos_info_key: pos
+    num_samples: 2048
+    global_ref_point: [ 0, 0 ]
+    maze_ref_point: [ 1, 1 ]
+    maze_scale: 4
+    maze_layout:
+      - [ 1, 1, 1, 1, 1, 1, 1, 1 ]
+      - [ 1, 0, 0, 1, 1, 0, 0, 1 ]
+      - [ 1, 0, 0, 1, 0, 0, 0, 1 ]
+      - [ 1, 1, 0, 0, 0, 1, 1, 1 ]
+      - [ 1, 0, 0, 1, 0, 0, 0, 1 ]
+      - [ 1, 0, 1, 0, 0, 1, 0, 1 ]
+      - [ 1, 0, 0, 0, 1, 0, 0, 1 ]
+      - [ 1, 1, 1, 1, 1, 1, 1, 1 ]
+  - type: maze_traj_visualiser
+    callback_interval: 10000
+    update_sample_ratio: 0.05
+    final_sample_ratio: 1
+    use_spatial_sampling: true
+    spatial_resolution: 0.1
+    pos_info_key: pos
+    centre_positions: true
+    flip_y: false
+    goals:
+      - [ -2, 6 ]
+      - [ -10, -6 ]
+      - [ 6, 10 ]

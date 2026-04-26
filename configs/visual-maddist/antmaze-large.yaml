@@ -1,0 +1,65 @@
+run_name: visual-maddist-antmaze-large
+seed: 0
+track_wandb: true
+checkpoint_interval: 10000
+
+objective:
+  total_updates: 100000
+
+  type: mad
+  model: visual_mad
+
+  hidden_dims: [ 512, 512, 256 ]
+  latent_dim: 512
+  lr: 0.0001
+  alpha: 0.5
+  w_r: 1
+  w_c: 0.1
+  d_max: 100
+
+  dataset:
+    type: mad
+    batch_size: 64
+    constraint_batch_size: 128
+    H_c: 6
+    dataset_id: ogbench/antmaze/visual-large-navigation-v0
+    obs_keys:
+      - observation
+    info_keys:
+      pos: achieved_goal
+    num_workers: 1
+
+callbacks:
+  - type: maze_metrics
+    callback_interval: 100
+    pos_info_key: pos
+    num_samples: 2048
+    global_ref_point: [ 0, 0 ]
+    maze_ref_point: [ 1, 1 ]
+    maze_scale: 4
+    maze_layout:
+      - [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+      - [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ]
+      - [ 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1 ]
+      - [ 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1 ]
+      - [ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1 ]
+      - [ 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1 ]
+      - [ 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1 ]
+      - [ 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 ]
+      - [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+  - type: maze_traj_visualiser
+    callback_interval: 10000
+    update_sample_ratio: 0.05
+    final_sample_ratio: 1
+    use_spatial_sampling: true
+    spatial_resolution: 0.1
+    pos_info_key: pos
+    centre_positions: true
+    flip_y: false
+    goals:
+      - [ 2, 4 ]
+      - [ 10, -4 ]
+      - [ -18, 0 ]
+      - [ -6, -12 ]
+      - [ 18, 12 ]
+      - [ -6, 4 ]
