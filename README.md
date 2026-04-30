@@ -6,7 +6,7 @@ This repository contains the codebase for my final-year research project at the 
 
 A key challenge in training autonomous agents is enabling them to establish a fundamental structural understanding of their surroundings. 
 One highly effective approach for capturing this topology is learning the Minimum Action Distance (MAD), 
-a temporal metric defined as the minimum number of steps required to move between two states.
+a temporal distance metric defined as the minimum number of steps required to move between two states.
 
 While existing methods successfully approximate the MAD in simple, low-dimensional environments, 
 their scalability to the high-dimensional observations necessary for practical applications has remained an open question.
