@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: If you use this software, please cite both the article from preferred-citation and the software itself.
+authors:
+  - family-names: Rall
+    given-names: Benjamin
+title: Learning the Minimum Action Distance in Pixel-Based Environments
+version: 1.0.0
+date-released: '2026-04-30'
+preferred-citation:
+  authors:
+    - family-names: Rall
+      given-names: Benjamin
+  title: Learning the Minimum Action Distance in Pixel-Based Environments
+  type: generic
+  year: '2026'
+  conference: {}
+  publisher: {}
